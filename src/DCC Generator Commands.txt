@@ -1,0 +1,102 @@
+Command list for the DCC Generator  Arduino Formware
+====================================================
+
+
+
+
+
+	//
+	//	DCC Generator Command Summary
+	//	=============================
+	//
+	//	For the moment the following commands are described in outline
+	//	only; details to be provided.
+	//
+	//	Mobile decoder set speed and direction
+	//	--------------------------------------
+	//
+	//	[M ADRS SPEED DIR] -> [M ADRS SPEED DIR]
+	//
+	//		ADRS:	The short (1-127) or long (128-10239) address of the engine decoder
+	//		SPEED:	Throttle speed from 0-126, or -1 for emergency stop
+	//		DIR:	1=Forward, 0=Reverse
+	//
+	//	Accessory decoder set state
+	//	---------------------------
+	//
+	//	[A ADRS STATE] -> [A ADRS STATE]
+	//
+	//		ADRS:	The combined address of the decoder (1-2048)
+	//		STATE:	1=on (set), 0=off (clear)
+	//
+	//	Mobile decoder set function state
+	//	---------------------------------
+	//
+	//	[F ADRS FUNC VALUE] -> [F ADRS FUNC STATE]
+	//
+	//		ADRS:	The short (1-127) or long (128-10239) address of the engine decoder
+	//		FUNC:	The function number to be modified (0-21)
+	//		VALUE:	1=Enable, 0=Disable
+	//		STATE:	1=Confirmed, 0=Failed
+	//	
+	//	Enable/Disable Power to track
+	//	-----------------------------
+	//
+	//	[P STATE] -> [P STATE]
+	//
+	//		STATE: 1=On, 0=Off
+	//
+	//	Set CV value (Programming track)
+	//	--------------------------------
+	//
+	//	[S CV VALUE] -> [S CV VALUE STATE]
+	//
+	//		CV:	Number of CV to set (1-1024)
+	//		VALUE:	8 bit value to apply (0-255)
+	//		STATE:	1=Confirmed, 0=Failed
+	//
+	//	Verify CV value (Programming track)
+	//	-----------------------------------
+	//
+	//	[V CV VALUE] -> [V CV VALUE STATE]
+	//
+	//		CV:	Number of CV to set (1-1024)
+	//		VALUE:	8 bit value to apply (0-255)
+	//		STATE:	1=Confirmed, 0=Failed
+	//
+	//	Verify CV bit value (Programming track)
+	//	-------------------------------------
+	//
+	//	Compare the specified CV bit with the supplied
+	//	value, if they are the same, return 1, otherwise
+	//	(or in the case of failure) return 0.
+	//
+	//	[R CV BIT VALUE] -> [R CV BIT STATE]
+	//
+	//		CV:	Number of CV to set (1-1024)
+	//		BIT:	Bit number (0 LSB - 7 MSB)
+	//		VALUE:	0 or 1
+	//		STATE:	1=Confirmed, 0=Failed
+	//
+	//	Asyncronous data returned from the firmware
+	//	===========================================
+	//
+	//	Change in Power state:
+	//
+	//		-> [P STATE]
+	//
+	//	Current power consumption of the system:
+	//
+	//		-> [L LOAD]
+	//
+	//		LOAD: Figure between 0 and 1023
+	//
+	//	Error detected by the firmware
+	//
+	//		-> [E ERR ARG]
+	//
+	//		ERR:	Error number giving nature of problem
+	//		ARG:	Additional information data, nature
+	//			dependant on the error number.
+	//
+
